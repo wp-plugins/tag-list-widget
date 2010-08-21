@@ -3,8 +3,8 @@ Contributors: ethitter
 Donate link: http://www.ethitter.com/plugins/tag-list-widget/
 Tags: tag, tags, sidebar, widget, widgets, list, bulleted, ordered, line break
 Requires at least: 2.3
-Tested up to: 3.0
-Stable tag: 0.3
+Tested up to: 3.0.1
+Stable tag: 0.3.1
 
 Displays tags in a bulleted, numbered, or line-break deliminated list with options to trim tag names, display post counts, and exclude specific tags.
 
@@ -88,6 +88,9 @@ To display tags as a dropdown, see my Tag Dropdown Widget, available in the Word
 For support, visit the plugin homepage at http://www.ethitter.com/plugins/tag-list-widget/.
 
 == Changelog ==
+
+= 0.3.1 =
+*Replace id on list items with class.
 
 = 0.3 =
 *Reduced variables stored in database to two.

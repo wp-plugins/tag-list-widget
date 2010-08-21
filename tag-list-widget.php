@@ -4,7 +4,7 @@ Plugin Name: Tag List Widget
 Plugin URI: http://www.ethitter.com/plugins/tag-list-widget/
 Description: Creates a list of tags as an alternative to the tag cloud. Widget provides various options for deliminating list, trimming long tag names to fit theme constraints, displaying post counts, and excluding specific tags.
 Author: Erick Hitter
-Version: 0.3
+Version: 0.3.1
 Author URI: http://www.ethitter.com/
 */
 
@@ -54,7 +54,7 @@ $slug = $tags[$i]->slug;
 	if (in_array($slug,$exclude)) {continue;}
 	else {
 		if ($limit>0) {if(strlen($tags[$i]->name)>$limit) {$name=substr($tags[$i]->name,0,$limit)."...";} else {$name=substr($tags[$i]->name,0,$limit);}} else {$name=$tags[$i]->name;}
-		$tag_list .= $bi."<a id=\"taglist_item\" href=\"".get_tag_link($tags[$i]->term_id)."\">".$name.$count."</a>".$ai;
+		$tag_list .= $bi."<a class=\"taglist_item\" href=\"".get_tag_link($tags[$i]->term_id)."\">".$name.$count."</a>".$ai;
 	}
 endfor;
 
