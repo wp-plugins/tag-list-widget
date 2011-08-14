@@ -51,15 +51,15 @@ Other list-style-type options include circle, which displays an unfilled circle,
 
 If not using a widget-enabled theme, insert the function `<?php if(function_exists('TLW_direct')) {TLW_direct();} ?>` where the list should appear. The function has five required arguments; omitting any will generate an error. All arguments should be enclosed in quotes. If a particular argument is not desired, simply insert two quotation marks as demonstrated below. The arguments are: limit, display count, code before item, code after item, and excluded tags.
 
-*Limit - the maximum length of a tag that should be displayed. If a tag is truncated, an elipsis (...) will be added to indicate the truncation. Set to "0" to display full tags.
+* Limit - the maximum length of a tag that should be displayed. If a tag is truncated, an elipsis (...) will be added to indicate the truncation. Set to "0" to display full tags.
 
-*Display count - to show number of posts with a particular tag, set this argument to "on". Otherwise, simply enter two quotation marks in this argument's place to exclude post counts.
+* Display count - to show number of posts with a particular tag, set this argument to "on". Otherwise, simply enter two quotation marks in this argument's place to exclude post counts.
 
-*Code before item - any valid HTML you would like to display before each tag.
+* Code before item - any valid HTML you would like to display before each tag.
 
-*Code after item - any valid HTML you would like to display after each tag.
+* Code after item - any valid HTML you would like to display after each tag.
 
-*Excluded tags - enter a comma-separated list of tags to be excluded from the resulting list.
+* Excluded tags - enter a comma-separated list of tags to be excluded from the resulting list.
 
 The following example demonstrates how to omit a particular argument without generating a parse error. In this example, full tags are displayed with post counts, no HTML is added before the tag names, a line break is added after each tag, and no tags are excluded.
 
@@ -90,10 +90,10 @@ For support, visit the plugin homepage at http://www.ethitter.com/plugins/tag-li
 == Changelog ==
 
 = 0.3.1 =
-*Replace id on list items with class.
+* Replace id on list items with class.
 
 = 0.3 =
-*Reduced variables stored in database to two.
+* Reduced variables stored in database to two.
 
 = 0.2 =
-*Added function `TLW_direct`
+* Added function `TLW_direct`
