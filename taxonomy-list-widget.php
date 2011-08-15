@@ -4,7 +4,7 @@ Plugin Name: Taxonomy List Widget
 Plugin URI: http://www.ethitter.com/plugins/taxonomy-list-widget/
 Description: Creates a list of non-hierarchical taxonomies as an alternative to the term (tag) cloud. Widget provides numerous options to tailor the output to fit your site. List function can also be called directly for use outside of the widget. Formerly known as <strong><em>Tag List Widget</em></strong>.
 Author: Erick Hitter
-Version: 1.0
+Version: 1.0.0.1
 Author URI: http://www.ethitter.com/
 */
 
@@ -623,7 +623,7 @@ if( !function_exists( 'TLW_direct' ) ):
 				'after_list' => '',
 				'before_item' => $before_item,
 				'after_item' => $after_item
-			);
+			)
 		);
 		
 		if( $exclude ) {

@@ -4,7 +4,7 @@ Donate link: http://www.ethitter.com/plugins/taxonomy-list-widget/
 Tags: tag, tags, taxonomy, sidebar, widget, widgets, list
 Requires at least: 2.8
 Tested up to: 3.2.1
-Stable tag: 1.0
+Stable tag: 1.0.0.1
 
 Creates a list (bulleted, number, or custom) of non-hierarchical taxonomies as an alternative to the term (tag) cloud. Formerly known as Tag List Widget.
 
@@ -75,6 +75,9 @@ To make targeting a specific filter reference possible should you use multiple i
 
 == Changelog ==
 
+= 1.0.0.1 =
+* Fix fatal error
+
 = 1.0 =
 * Completely rewritten plugin to use WordPress' newer Widgets API.
 * Drop support for WordPress 2.7 and earlier.
@@ -93,6 +96,9 @@ To make targeting a specific filter reference possible should you use multiple i
 * Added function `TLW_direct`
 
 == Upgrade Notice ==
+
+= 1.0.0.1 =
+Corrects fatal error in plugin.
 
 = 1.0 =
 The plugin was renamed, completely rewritten, and drops support for WordPress 2.7 and earlier. Upgrading will delete all of your existing widgets; see the FAQ for an explanation. Review the changelog and FAQ for more information.
