@@ -76,7 +76,7 @@ To make targeting a specific filter reference possible should you use multiple i
 == Changelog ==
 
 = 1.0 =
-* Completely rewrite plugin to use WordPress' newer Widgets API.
+* Completely rewritten plugin to use WordPress' newer Widgets API.
 * Drop support for WordPress 2.7 and earlier.
 * Add support for all public, non-hierarchical custom taxonomies, in addition to Post Tags.
 * Introduce new, more flexible function for manually generating lists.
