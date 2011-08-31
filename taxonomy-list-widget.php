@@ -4,7 +4,7 @@ Plugin Name: Taxonomy List Widget
 Plugin URI: http://www.ethitter.com/plugins/taxonomy-list-widget/
 Description: Creates a list of non-hierarchical taxonomies as an alternative to the term (tag) cloud. Widget provides numerous options to tailor the output to fit your site. List function can also be called directly for use outside of the widget. Formerly known as <strong><em>Tag List Widget</em></strong>.
 Author: Erick Hitter
-Version: 1.0.1
+Version: 1.1
 Author URI: http://www.ethitter.com/
 */
 
@@ -27,7 +27,8 @@ class taxonomy_list_widget_plugin {
 		'incexc' => 'exclude',
 		'incexc_ids' => array(),
 		'hide_empty' => true,
-		'post_counts' => false
+		'post_counts' => false,
+		'rel' => 'nofollow'
 	);
 	
 	/*
@@ -177,7 +178,7 @@ class taxonomy_list_widget_plugin {
 				
 				//Open item
 				$output .= $before_item;
-				$output .= '<a href="' . esc_url( get_term_link( (int)$term->term_id, $taxonomy ) ) . '"' . apply_filters( 'taxonomy_list_widget_link_rel', ' rel="nofollow"', $id ) . '>';
+				$output .= '<a href="' . esc_url( get_term_link( (int)$term->term_id, $taxonomy ) ) . '"' . apply_filters( 'taxonomy_list_widget_link_rel', ( $rel == 'dofollow' ? ' rel="dofollow"' : ' rel="nofollow"' ), $id ) . '>';
 				
 				//Tag name
 				$name = esc_attr( $term->name );
@@ -309,6 +310,11 @@ class taxonomy_list_widget_plugin {
 							if( in_array( $value, $delims ) )
 								$options_sanitized[ $key ] = $value;
 						}
+					break;
+					
+					case 'rel':
+						if( in_array( $value, array( 'nofollow', 'dofollow' ) ) )
+							$options_sanitized[ $key ] = $value;
 					break;
 					
 					default:
@@ -563,6 +569,18 @@ class taxonomy_list_widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'threshold' ); ?>"><? _e( 'Show terms assigned to at least this many posts:' ); ?></label><br />
 			<input type="text" name="<?php echo $this->get_field_name( 'threshold' ); ?>" id="<?php echo $this->get_field_id( 'threshold' ); ?>" value="<?php echo intval( $threshold ); ?>" size="3" /><br />
 			<span class="description"><? _e( '<small>Set to <strong>0</strong> to display all terms matching the above criteria.</small>' ); ?></span>
+		</p>
+		
+		<p>
+			<label><? _e( 'Link relationship:' ); ?></label><br />
+			
+			<input type="radio" name="<?php echo $this->get_field_name( 'rel' ); ?>" value="nofollow" id="<?php echo $this->get_field_id( 'rel-n' ); ?>"<?php checked( $rel, 'nofollow', true ); ?> />
+			<label for="<?php echo $this->get_field_id( 'rel-n' ); ?>"><? _e( 'nofollow' ); ?></label><br />
+			
+			<input type="radio" name="<?php echo $this->get_field_name( 'rel' ); ?>" value="dofollow" id="<?php echo $this->get_field_id( 'rel-d' ); ?>"<?php checked( $rel, 'dofollow', true ); ?> />
+			<label for="<?php echo $this->get_field_id( 'rel-d' ); ?>"><? _e( 'dofollow' ); ?></label><br />
+			
+			<span class="description"><?php _e( 'The above setting determines whether or not search engines visit linked pages from links in this widget\'s list.' ); ?></span>
 		</p>
 		
 	<?php

@@ -4,7 +4,7 @@ Donate link: http://www.ethitter.com/plugins/taxonomy-list-widget/
 Tags: tag, tags, taxonomy, sidebar, widget, widgets, list
 Requires at least: 2.8
 Tested up to: 3.2.1
-Stable tag: 1.0.1
+Stable tag: 1.1
 
 Creates a list (bulleted, number, or custom) of non-hierarchical taxonomies as an alternative to the term (tag) cloud. Formerly known as Tag List Widget.
 
@@ -56,6 +56,7 @@ Insert the function `<?php if( function_exists( 'taxonomy_list_widget' ) ) taxon
 * hide_empty - set to `false` to include in the list any terms that haven't been assigned to any objects (i.e. unused tags). Defaults to `true`.
 * post_counts - set to `true` to include post counts after term names. Defaults to `false`.
 * delimiter - sets list style. Native options are `ul`, `ol`, and `nl` for bulleted list, numbered list, and line breaks, respectively. By passing an array with keys `before_list`, `after_list`, `before_item`, and `after_item`, you can completely customize the list style.
+* rel - either `dofollow` or `nofollow`. Can still use `taxonomy_list_widget_link_rel` filter to specify link relationship.
 
 = Why is the TLW_direct() function deprecated? =
 
@@ -74,6 +75,9 @@ This plugin relies on WordPress' `get_terms` function (http://codex.wordpress.or
 To make targeting a specific filter reference possible should you use multiple instances of the list (multiple widgets, use of the `taxonomy_list_widget` function, or some combination thereof), the filter provides a second argument, `$id`, that is either the numeric ID of the widget's instance or the string provided as the second argument to `taxonomy_list_widget`.
 
 == Changelog ==
+
+= 1.1 =
+* Provide control over link relationship (`dofollow` and `nofollow`) in widget. This capability is still available via the `taxonomy_list_widget_link_rel` filter.
 
 = 1.0.1 =
 * Fix fatal error in older WordPress versions resulting from PHP4 and PHP5 constructors existing in widget class.
@@ -102,6 +106,9 @@ To make targeting a specific filter reference possible should you use multiple i
 * Added function `TLW_direct`
 
 == Upgrade Notice ==
+
+= 1.1 =
+Adds control over link relationship (`dofollow` and `nofollow`) in the widgets' options. This capability is still available via the `taxonomy_list_widget_link_rel` filter.
 
 = 1.0.1 =
 Fixes a backwards-compatibility problem in the widget class that generated fatal errors in WordPress 3.0 and earlier.
