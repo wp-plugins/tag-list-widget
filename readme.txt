@@ -4,7 +4,7 @@ Donate link: http://www.ethitter.com/plugins/taxonomy-list-widget/
 Tags: tag, tags, taxonomy, sidebar, widget, widgets, list
 Requires at least: 2.8
 Tested up to: 3.2.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 Creates a list (bulleted, number, or custom) of non-hierarchical taxonomies as an alternative to the term (tag) cloud. Formerly known as Tag List Widget.
 
@@ -76,6 +76,9 @@ To make targeting a specific filter reference possible should you use multiple i
 
 == Changelog ==
 
+= 1.1.1 =
+* Allow empty title in widget options. If empty, the `taxonomy_list_widget_title` filter isn't run.
+
 = 1.1 =
 * Provide control over link relationship (`dofollow` and `nofollow`) in widget. This capability is still available via the `taxonomy_list_widget_link_rel` filter.
 
@@ -106,6 +109,9 @@ To make targeting a specific filter reference possible should you use multiple i
 * Added function `TLW_direct`
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Allows empty title in widget options. If empty, the `taxonomy_list_widget_title` filter isn't run.
 
 = 1.1 =
 Adds control over link relationship (`dofollow` and `nofollow`) in the widgets' options. This capability is still available via the `taxonomy_list_widget_link_rel` filter.

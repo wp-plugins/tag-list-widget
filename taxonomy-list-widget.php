@@ -4,7 +4,7 @@ Plugin Name: Taxonomy List Widget
 Plugin URI: http://www.ethitter.com/plugins/taxonomy-list-widget/
 Description: Creates a list of non-hierarchical taxonomies as an alternative to the term (tag) cloud. Widget provides numerous options to tailor the output to fit your site. List function can also be called directly for use outside of the widget. Formerly known as <strong><em>Tag List Widget</em></strong>.
 Author: Erick Hitter
-Version: 1.1
+Version: 1.1.1
 Author URI: http://www.ethitter.com/
 */
 
@@ -237,7 +237,7 @@ class taxonomy_list_widget_plugin {
 					case 'cutoff':
 						$value = sanitize_text_field( $value );
 						
-						if( !empty( $value ) )
+						if( !empty( $value ) || $key == 'title' )
 							$options_sanitized[ $key ] = $value;
 					break;
 					
@@ -391,7 +391,9 @@ class taxonomy_list_widget extends WP_Widget {
 		if( $widget = $taxonomy_list_widget_plugin->render_list( $instance, $this->number ) ) {
 			//Wrapper and title
 			$output = $before_widget;
-			$output .= $before_title . apply_filters( 'taxonomy_list_widget_title',  $title, $this->number ) . $after_title;
+			
+			if( !empty( $title ) )
+				$output .= $before_title . apply_filters( 'taxonomy_list_widget_title',  $title, $this->number ) . $after_title;
 			
 			//Widget
 			$output .= $widget;
