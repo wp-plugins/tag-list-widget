@@ -4,13 +4,13 @@ Donate link: http://www.ethitter.com/plugins/taxonomy-list-widget/
 Tags: tag, tags, taxonomy, sidebar, widget, widgets, list
 Requires at least: 2.8
 Tested up to: 3.2.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 Creates a list (bulleted, number, or custom) of non-hierarchical taxonomies as an alternative to the term (tag) cloud. Formerly known as Tag List Widget.
 
 == Description ==
 
-Creates lists of non-hierarchical taxonomies (such as `post tags`) as an alternative to term (tag) clouds. Multiple widgets can be used, each with its own set of options. 
+Creates lists of non-hierarchical taxonomies (such as `post tags`) as an alternative to term (tag) clouds. Multiple widgets can be used, each with its own set of options.
 
 Numerous formatting options are provided, including maximum numbers of terms, term order, truncating of term names, and more. List styles are fully customizable, with built-in support for bulleted lists and numbered lists.
 
@@ -41,7 +41,7 @@ As discussed above, WordPress' widget system has changed drastically since I fir
 
 = If my theme does not support widgets, or I would like to include the list outside of the sidebar, can I still use the plugin? =
 
-Insert the function `<?php if( function_exists( 'taxonomy_list_widget' ) ) taxonomy_list_widget( $args, $id ); ?>` where the list should appear, specifying `$args` as an array of arguments and, optionally, `$id` as a string uniquely identifying this list.
+Insert the function `<?php if( function_exists( 'taxonomy_list_widget' ) ) echo taxonomy_list_widget( $args, $id ); ?>` where the list should appear, specifying `$args` as an array of arguments and, optionally, `$id` as a string uniquely identifying this list.
 
 * taxonomy - slug of taxonomy for list. Defaults to `post_tag`.
 * select_name - name of first (default) option in the list. Defaults to `Select Tag`.
@@ -76,6 +76,10 @@ To make targeting a specific filter reference possible should you use multiple i
 
 == Changelog ==
 
+= 1.1.2 =
+* Correct problem in WordPress 3.3 and higher that resulted in an empty taxonomy dropdown.
+* Remove all uses of PHP short tags.
+
 = 1.1.1 =
 * Allow empty title in widget options. If empty, the `taxonomy_list_widget_title` filter isn't run.
 
@@ -109,6 +113,9 @@ To make targeting a specific filter reference possible should you use multiple i
 * Added function `TLW_direct`
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+Corrects a problem in WordPress 3.3 and higher that resulted in an empty taxonomy dropdown. Also removes all uses of PHP short tags.
 
 = 1.1.1 =
 Allows empty title in widget options. If empty, the `taxonomy_list_widget_title` filter isn't run.
